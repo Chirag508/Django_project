@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f3e0 0%, #a8e063 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .home-button:hover {
+            transform: scale(1.05);
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 900px;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+        .cart-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .item-box {
+            background-color: #f0f9f0;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .item-box:hover {
+            background-color: #e0f3e0;
+            transform: scale(1.05);
+        }
+        .item-name {
+            color: #2E7D32;
+            font-weight: bold;
+        }
+        .usage-info {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'home' %}"><button class="home-button">Home</button></a>
+    <div class="container">
+        <h1>🛒 Your Cart 🍎</h1>
+        <div class="cart-container">
+            {% for i in items %}
+            <div class="item-box">
+                <div class="item-name">{{ i }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="usage-info">This site is used {{count}} times...</div>
+</body>
+</html>
+
+
+
+<!-- this is orignal -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+</head>
+<body>
+    <a href="{% url 'home' %}"><button>Home</button></a>
+    <div>
+        <h1>Your Cart</h1>
+        <div>
+            {% for i in items %}
+            <div>
+                <div class="item-name">{{ i }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div >This site is used {{count}} times...</div>
+</body>
+</html> -->

@@ -1,0 +1,154 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body and Container */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 14px;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.5rem;
+    color: #2d3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Form Styling */
+.customer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.customer-form input,
+.customer-form select,
+.customer-form textarea { /* Add textarea styling */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #f4f7fc;
+    transition: border 0.3s ease;
+}
+
+.customer-form input:focus,
+.customer-form select:focus,
+.customer-form textarea:focus { /* Add focus styles for textarea */
+    border: 1px solid #5c8bff;
+    background-color: #fff;
+}
+
+.customer-form textarea {
+    resize: vertical; /* Allows the user to resize the textarea vertically */
+    min-height: 80px;  /* Set a minimum height for the textarea */
+}
+
+.btn-submit {
+    padding: 10px 15px;
+    background-color: #5c8bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #3b6bc7;
+}
+
+/* Table Styles */
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.customer-table th,
+.customer-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.customer-table th {
+    background-color: #4caf50;
+    color: white;
+}
+
+.customer-table td {
+    background-color: #f4f7fc;
+}
+
+.customer-table tr:nth-child(even) td {
+    background-color: #f9fafb;
+}
+
+.customer-table tr:hover td {
+    background-color: #f1f5f9;
+}
+
+.customer-table .no-data {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+.btn-action,
+.btn-delete {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-action {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-action:hover {
+    background-color: #45a049;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    margin-left: 5px;
+}
+
+.btn-delete:hover {
+    background-color: #e53935;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .customer-form {
+        gap: 10px;
+    }
+
+    .customer-table th, .customer-table td {
+        padding: 6px 8px;
+    }
+}

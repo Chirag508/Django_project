@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Shopping</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f3e0 0%, #a8e063 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 900px;
+            padding: 30px;
+        }
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .home-button:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            text-align: center;
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+        .fruit-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .fruit-block {
+            display: flex;
+            align-items: center;
+            background-color: #f0f9f0;
+            padding: 15px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .fruit-block:hover {
+            background-color: #e0f3e0;
+        }
+        .fruit-block input {
+            margin-right: 10px;
+            accent-color: #4CAF50;
+        }
+        .cart-button {
+            display: block;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cart-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'home' %}"><button class="home-button">Home</button></a>
+    <form method="post" class="container">
+        <h1>🍎 Fruit Shopping 🍐</h1>
+        <div class="fruit-list">
+            {% csrf_token %}
+            {% for i in fruits %}
+            <div class="fruit-block">
+                <input type="checkbox" id="{{ i }}" name="select" value="{{ i }}">
+                <label for="{{ i }}">{{ i }}</label>
+            </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="cart-button">
+            Add to Cart 🛒
+        </button>
+    </form>
+</body>
+</html>
+
+
+
+<!-- this is old html -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shoping-page</title>
+</head>
+<body>
+    <div>
+        {% for i in fruits %}
+        {{i}}
+        <input type="checkbox">
+        {% endfor %}
+    </div>
+</body>
+</html> -->

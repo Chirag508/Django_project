@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .homescreen {
+            position: fixed;
+            top: 20px; /* Adjust distance from the top */
+            right: 20px; /* Position it on the right side */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+            margin: 0;
+        }
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .news-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .news-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .news-box h3 {
+            color: #007BFF;
+            margin: 0 0 10px;
+            font-size: 1.2em;
+        }
+        .news-box p {
+            color: #555;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+        .news-box .date {
+            font-size: 0.9em;
+            color: #888;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>    
+    <div class="homescreen">
+    <a href="{% url 'home' %}" style="text-decoration: none;">
+        <button>Home</button>
+    </a>
+</div>
+    <h1>Today's Breaking NEWS</h1>
+    <div class="news-container">
+        {% for i in news_data %}
+        <div class="news-box">
+            <p class="date">Date: {{ i.DateTime }}</p>
+            <h3>{{ i.title }}</h3>
+            <p><strong>Author:</strong> {{ i.auther }}</p>
+            <p>{{ i.body }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <footer>
+        © 2024 News Portal
+    </footer>
+</body>
+</html>
+
+<!-- old orignal html  -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS</title>
+</head>
+<body>
+    <h1> Today's Breking NEWS is </h1>
+    <div>
+    {% for i in news_data %}
+            date : {{i.DateTime}}<br>
+            Title : {{i.title}}<br>
+            Auther :{{i.auther}}<br>
+            news : {{i.body}}<br><br>
+        {% endfor %}
+    </div>
+</body>
+</html> -->

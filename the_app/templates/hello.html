@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .homescreen {
+            position: fixed;
+            top: 20px; /* Adjust distance from the top */
+            right: 20px; /* Position it on the right side */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-yellow-50 to-orange-50 min-h-screen flex items-center justify-center">
+    <div class="homescreen">
+        <a href="{% url 'home' %}" style="text-decoration: none;">
+            <button>Home</button>
+        </a>
+    </div>
+    
+    <div class="text-center px-6">
+        <h1 class="text-5xl md:text-6xl font-bold text-orange-600 mb-4">
+            Welcome! 👋
+        </h1>
+        <p class="text-xl text-gray-700 max-w-2xl">
+            Thank you for visiting our Django project. We're glad you're here!
+        </p>
+    </div>
+</body>
+</html>

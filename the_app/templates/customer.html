@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form_style.css' %}">
+    <style>
+        
+        .homescreen {
+            position: fixed;
+            top: 20px; /* Adjust distance from the top */
+            right: 20px; /* Position it on the right side */
+        }
+    </style>
+</head>
+<body>
+    <div class="homescreen">
+        <a href="{% url 'home' %}" style="text-decoration: none;">
+            <button>Home</button>
+        </a>
+    </div>
+    <div class="container">
+        <!-- Customer Form Section -->
+        <section class="form-section">
+            <h1 class="section-title">Customer Form</h1>
+            <form method="POST" class="customer-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Customer Data Table Section -->
+        <section class="data-section">
+            <h1 class="section-title">Customer Data</h1>
+            <table class="customer-table">
+                <thead>
+                    <tr>
+                        <th>Cust ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>State</th>
+                        <th>Reg. Date</th>
+                        <th>Last updated</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in customers %}
+                        <tr>
+                            <td>{{ i.cust_id }}</td>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.phone }}</td>
+                            <td>{{ i.age }}</td>
+                            <td>{{ i.address }}</td>
+                            <td>{{ i.state }}</td>
+                            <td>{{ i.Registrationdate }}</td>
+                            <td>{{i.updationdate}}</td>
+                            <td>
+                                <a href="{% url 'update_customer' i.cust_id %}" ><button class="btn-action">Update</button></a>
+                                <a href="{% url 'delete_customer' i.cust_id %}" onclick="return confirm('are you sure ?')"><button class="btn-action btn-delete">Delete</button></a>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="8" class="no-data">No customer data available.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

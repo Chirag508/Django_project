@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home || Page</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e8eaf6 0%, #ffffff 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+            animation: slideUp 1s ease-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3f51b5;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 2rem;
+            animation: rollIn 1s ease-out;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            background: #3f51b5;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            background-color: #303f9f;
+        }
+
+        /* Custom Button Styles */
+        a:nth-child(1) button { background: #1e88e5; }
+        a:nth-child(2) button { background: #43a047; }
+        a:nth-child(3) button { background: #ffb300; }
+        a:nth-child(4) button { background: #d81b60; }
+        a:nth-child(5) button { background: #6d4c41; }
+
+        a:nth-child(1) button:hover { background-color: #1565c0; }
+        a:nth-child(2) button:hover { background-color: #2e7d32; }
+        a:nth-child(3) button:hover { background-color: #f57f17; }
+        a:nth-child(4) button:hover { background-color: #ad1457; }
+        a:nth-child(5) button:hover { background-color: #5d4037; }
+
+        /* Keyframes for Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes rollIn {
+            from {
+                opacity: 0;
+                transform: translateY(-100px) rotateX(90deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .button-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the App</h1>
+        <div class="button-container">
+            <a href="hello/"><button>Hello</button></a>
+            <a href="screen_one/"><button>Greeting</button></a>
+            <a href="customer/"><button>Customer</button></a>
+            <a href="news/"><button>News</button></a>
+            <a href="sopping_page/"><button>Shopping Page</button></a>
+            <a href="{% url 'admin:index' %}"><button>Admin</button></a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<!-- old orrignel Page -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home || page</title>
+</head>
+<body>
+    <h1>welcome to the home-page of the_app </h1>
+    <a href="hello/"><button>Hello</button></a>
+    <a href="screen_one/"><button>Greeting</button></a>
+    <a href="customer/"><button>customer</button></a>
+    <a href="news/"><button>news</button></a>
+</body>
+</html> -->

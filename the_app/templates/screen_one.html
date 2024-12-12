@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        input[type="text"] {
+            padding: 12px 16px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #667eea;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .homescreen {
+            position: fixed;
+            top: 20px; /* Adjust distance from the top */
+            right: 20px; /* Position it on the right side */
+        }
+
+        .homescreen button {
+            padding: 10px 16px;
+            font-size: 14px;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .homescreen button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="homescreen">
+        <a href="{% url 'home' %}" style="text-decoration: none;">
+            <button>Home</button>
+        </a>
+    </div>
+    <div class="container">
+        <h2>Welcome</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter your name here..." required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+<!-- old orignal screen  -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>screen one</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter your name here..." required><br>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html> -->
